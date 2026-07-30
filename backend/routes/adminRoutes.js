@@ -31,6 +31,7 @@ const {
 } = require("../controllers/adminShowtimeController");
 
 const { getAllBookings, getBookingStats } = require("../controllers/adminBookingController");
+const { getAllUsers, updateUserRole } = require("../controllers/adminUserController");
 
 const router = express.Router();
 
@@ -67,5 +68,9 @@ router.patch("/showtimes/:id/seats/:seatLabel/block", setSeatBlockedStatus);
 // ----- Bookings (read-only for admins) -----
 router.get("/bookings", getAllBookings);
 router.get("/bookings/stats", getBookingStats);
+
+// ----- Users (role management) -----
+router.get("/users", getAllUsers);
+router.patch("/users/:id/role", updateUserRole);
 
 module.exports = router;
