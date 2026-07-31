@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-ink-950 text-ivory font-body antialiased;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-display;
+  }
+
+  ::selection {
+    @apply bg-gold-500/30 text-ivory;
+  }
+
+  /* Visible keyboard focus, kept subtle to match the theme */
+  :focus-visible {
+    outline: 2px solid theme("colors.gold.500");
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  .label {
+    @apply text-[11px] uppercase tracking-label text-muted font-medium;
+  }
+
+  .card {
+    @apply bg-ink-900 border border-ink-700 rounded-card;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-md bg-gold-500 px-4 py-2
+      text-sm font-semibold text-ink-950 transition-colors hover:bg-gold-400
+      disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-md border border-ink-600 bg-transparent
+      px-4 py-2 text-sm font-medium text-ivory transition-colors hover:bg-ink-800
+      disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-link {
+    @apply text-sm text-muted transition-colors hover:text-ivory;
+  }
+
+  .input {
+    @apply w-full rounded-md border border-ink-600 bg-ink-800 px-3 py-2 text-sm text-ivory
+      placeholder:text-muted/70 outline-none transition-colors focus:border-gold-500;
+  }
+
+  .pill {
+    @apply inline-flex items-center rounded-full border border-gold-500/40 bg-gold-500/10
+      px-3 py-1 text-xs font-medium text-gold-400;
+  }
+
+  .tab {
+    @apply relative pb-3 text-sm font-medium text-muted transition-colors hover:text-ivory;
+  }
+
+  .tab-active {
+    @apply text-gold-400;
+  }
+
+  .tab-active::after {
+    content: "";
+    @apply absolute -bottom-px left-0 h-[2px] w-full bg-gold-500;
+  }
+}
