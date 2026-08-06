@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
@@ -32,3 +33,14 @@ const startServer = async () => {
 };
 
 startServer();
+=======
+require("dotenv").config();
+const app = require("./app");
+const connectDB = require("./config/db");
+
+const PORT = process.env.PORT || 5000;
+
+connectDB().then(() => {
+  app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+});
+>>>>>>> 7d52a8b1d71d4059e80c43015346320a9d5672e0
